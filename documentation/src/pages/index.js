@@ -44,4 +44,4 @@ export function Install() {
 			{`npm i -s css-fx-layout`}
 		</CodeBlock>;
 }
-window.globalCount = 0;
+window.globalCount = window.globalCount || 0;
