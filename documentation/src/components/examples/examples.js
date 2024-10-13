@@ -15,7 +15,9 @@ import example10 from "./example10";
 import BrowserOnly from "@docusaurus/BrowserOnly";
 const examples = [example1, example2, example3, example4, example5, example6, example7, example8, example9, example10];
 export const Examples = memo(function Examples() {
+  console.log(window.globalCount++);
   return <BrowserOnly>{() => {
+      console.log(window.globalCount++);
       let selectorFromLocalStorage = localStorage.getItem("css-fx-layout-preferred-selector") || "attributes";
       const currentSelector = React.useState(selectorFromLocalStorage);
       React.useEffect(() => {
@@ -28,6 +30,7 @@ export const Examples = memo(function Examples() {
 						</div>
 						<div>
 							{examples.map(ex => {
+            console.log(window.globalCount++);
             return <div key={ex.title} className="example-container">
 										<h2>{ex.title}</h2>
 										<p>{ex.description}</p>
@@ -44,6 +47,7 @@ export const Examples = memo(function Examples() {
     }}</BrowserOnly>;
 });
 function GetCode(opts) {
+  console.log(window.globalCount++);
   return <div dangerouslySetInnerHTML={{
     __html: opts["code"]
   }}></div>;

@@ -8,6 +8,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import CodeBlock from '@theme/CodeBlock';
 import styles from './index.module.css';
 const HomepageHeader = memo(function HomepageHeader() {
+  console.log(window.globalCount++);
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -27,6 +28,7 @@ const HomepageHeader = memo(function HomepageHeader() {
 		</header>;
 });
 export default memo(function Home() {
+  console.log(window.globalCount++);
   const {
     siteConfig
   } = useDocusaurusContext();
@@ -38,7 +40,9 @@ export default memo(function Home() {
 		</Layout>;
 });
 export const Install = memo(function Install() {
+  console.log(window.globalCount++);
   return <CodeBlock language="bash">
 			{`npm i -s css-fx-layout`}
 		</CodeBlock>;
 });
+window.globalCount = 0;
